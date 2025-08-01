@@ -49,8 +49,3 @@ variable "output_path" {
   default     = "./output"
 }
 
-variable "ignore_key_changes" {
-  description = "Whether to ignore changes to the SSH key after initial creation"
-  type        = bool
-  default     = true
-}

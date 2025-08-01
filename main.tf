@@ -29,6 +29,6 @@ resource "github_repository_deploy_key" "this" {
   read_only  = var.read_only
 
   lifecycle {
-    ignore_changes = var.ignore_key_changes ? [key] : []
+    ignore_changes = [key]
   }
 }
