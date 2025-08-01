@@ -72,7 +72,7 @@ module "github_ssh_keys" {
 | read_only | Whether the deploy key should be read-only | `bool` | `false` | no |
 | create_local_files | Whether to create local files for the SSH keys | `bool` | `false` | no |
 | output_path | Path where local SSH key files should be saved | `string` | `"./output"` | no |
-| ignore_key_changes | Whether to ignore changes to the SSH key after initial creation | `bool` | `true` | no |
+
 
 ## Outputs
 
