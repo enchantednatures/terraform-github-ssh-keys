@@ -24,7 +24,7 @@ module "github_ssh_keys_ed25519" {
   read_only           = false
   create_local_files  = true
   output_path         = "./ssh-keys"
-  ignore_key_changes  = false
+
 }
 
 # Example with RSA key and local file creation
