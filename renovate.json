@@ -1,0 +1,48 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base"
+  ],
+  "schedule": [
+    "before 6am on monday"
+  ],
+  "assignees": ["@hcasten"],
+  "reviewers": ["@hcasten"],
+  "prConcurrentLimit": 3,
+  "prHourlyLimit": 2,
+  "separateMajorMinor": true,
+  "separateMultipleMajor": true,
+  "separateMinorPatch": false,
+  "groupName": "Terraform providers",
+  "groupSlug": "terraform-providers",
+  "commitMessagePrefix": "chore:",
+  "semanticCommits": "enabled",
+  "packageRules": [
+    {
+      "matchDatasources": ["terraform-provider"],
+      "groupName": "Terraform providers",
+      "schedule": [
+        "before 6am on monday"
+      ]
+    },
+    {
+      "matchDatasources": ["github-actions"],
+      "groupName": "GitHub Actions",
+      "schedule": [
+        "before 6am on monday"
+      ]
+    },
+    {
+      "matchPackageNames": ["hashicorp/terraform"],
+      "groupName": "Terraform CLI",
+      "schedule": [
+        "before 6am on monday"
+      ]
+    }
+  ],
+  "terraform": {
+    "ignorePaths": [
+      "**/examples/**/.terraform.lock.hcl"
+    ]
+  }
+}
