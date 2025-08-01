@@ -1,0 +1,91 @@
+formatter: "markdown table"
+
+version: ""
+
+header-from: main.tf
+footer-from: ""
+
+recursive:
+  enabled: false
+  path: modules
+
+sections:
+  hide: []
+  show: []
+
+content: |-
+  {{ .Header }}
+
+  ## Usage
+
+  ### Basic Example
+
+  ```hcl
+  module "github_ssh_keys" {
+    source = "github.com/enchantednatures/terraform-github-ssh-keys"
+
+    github_repository = "my-org/my-repo"
+    key_title         = "flux-deploy-key"
+  }
+  ```
+
+  ### Advanced Example
+
+  ```hcl
+  module "github_ssh_keys" {
+    source = "github.com/enchantednatures/terraform-github-ssh-keys"
+
+    github_repository   = "my-org/my-repo"
+    key_title          = "deployment-key"
+    algorithm          = "ED25519"
+    read_only          = false
+    create_local_files = true
+    output_path        = "./ssh-keys"
+  }
+  ```
+
+  ## Examples
+
+  - [Basic](examples/basic) - Simple usage with default settings
+  - [Advanced](examples/advanced) - Multiple key types and configurations
+
+  {{ .Requirements }}
+
+  {{ .Providers }}
+
+  {{ .Inputs }}
+
+  {{ .Outputs }}
+
+  {{ .Footer }}
+
+output:
+  file: "README.md"
+  mode: inject
+  template: |-
+    <!-- BEGIN_TF_DOCS -->
+    {{ .Content }}
+    <!-- END_TF_DOCS -->
+
+output-values:
+  enabled: false
+  from: ""
+
+sort:
+  enabled: true
+  by: name
+
+settings:
+  anchor: true
+  color: true
+  default: true
+  description: false
+  escape: true
+  hide-empty: false
+  html: true
+  indent: 2
+  lockfile: true
+  read-comments: true
+  required: true
+  sensitive: true
+  type: true
